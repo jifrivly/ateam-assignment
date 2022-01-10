@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <h3>Detailed Info</h3>
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <table class="table" *ngIf="todo">
+        <tr>
+            <td>Id</td>
+            <td>:</td>
+            <td>{{ todo.id }}</td>
+        </tr>
+        <tr>
+            <td>User Id</td>
+            <td>:</td>
+            <td>{{ todo.userId }}</td>
+        </tr>
+        <tr>
+            <td>Title</td>
+            <td>:</td>
+            <td>{{ todo.title }}</td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>:</td>
+            <td>{{ todo.completed ? "Completed" : "In Complete" }}</td>
+        </tr>
+    </table>
+</div>

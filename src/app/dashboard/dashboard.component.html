@@ -1,0 +1,40 @@
+<mat-toolbar>
+    <span>Dashboard</span>
+    <span style="flex: 1 1 auto"></span>
+    <button mat-icon-button aria-label="Logout" matTooltip="Logout" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>
+
+<div class="mat-elevation-z8">
+    <table style="width: 100%" mat-table #table [dataSource]="todoDataSource" matSort>
+        <ng-container matColumnDef="id">
+            <th style="width: 10%" mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+            <td style="width: 10%" mat-cell *matCellDef="let row">{{ row.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="userId">
+            <th style="width: 10%" mat-header-cell *matHeaderCellDef mat-sort-header>User Id</th>
+            <td style="width: 10%" mat-cell *matCellDef="let row">{{ row.userId }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+            <th style="width: 40%" mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+            <td style="width: 40%" mat-cell *matCellDef="let row">{{ row.title }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th style="width: 40%" mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+            <td style="width: 40%" mat-cell *matCellDef="let row">{{ row.completed ? "Completed" : "In Complete" }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="todoTableRows"></tr>
+        <tr mat-row (click)="openDetails(row)" *matRowDef="let row; columns: todoTableRows"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data found.</td>
+        </tr>
+    </table>
+
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+</div>
