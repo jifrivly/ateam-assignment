@@ -7,6 +7,11 @@
 </mat-toolbar>
 
 <div class="mat-elevation-z8">
+    <mat-form-field appearance="standard">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="searchTodos($event)" placeholder="search here" #searchInput />
+    </mat-form-field>
+
     <table style="width: 100%" mat-table #table [dataSource]="todoDataSource" matSort>
         <ng-container matColumnDef="id">
             <th style="width: 10%" mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>

@@ -47,6 +47,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         // this.todoDataSource.sort = this.sort;
     }
 
+    searchTodos(event: Event) {
+        const filterValue = (event.target as HTMLInputElement).value;
+        this.todoDataSource.filter = filterValue.trim().toLowerCase();
+    }
+
     openDetails(todo: Todo) {
         console.log(todo);
         const modalRef = this.modalService.open(InfoComponent, {

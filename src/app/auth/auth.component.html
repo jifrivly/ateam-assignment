@@ -8,9 +8,7 @@
                 </mat-card-header>
                 <mat-card-content>
                     <app-email (getEmail)="getEmail($event)"></app-email>
-                    {{ email }}
                     <app-password (getPassword)="getPassword($event)"></app-password>
-                    {{ password }}
                 </mat-card-content>
                 <mat-card-actions>
                     <div class="text-danger">{{ loginErrorMessage }}</div>
